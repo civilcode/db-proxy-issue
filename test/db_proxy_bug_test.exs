@@ -1,8 +1,12 @@
 defmodule DbProxyBugTest do
-  use ExUnit.Case
+  use DbProxyBug.TestCase
   doctest DbProxyBug
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "worker fetches weather" do
+    assert DbProxyBug.Worker.fetch_weather() == "REPLY"
+  end
+
+  test "worker fetches weather again" do
+    assert DbProxyBug.Worker.fetch_weather() == "REPLY"
   end
 end

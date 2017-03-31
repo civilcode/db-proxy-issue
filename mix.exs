@@ -7,6 +7,7 @@ defmodule DbProxyBug.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
+     elixirc_paths: elixirc_paths(Mix.env),
      deps: deps()]
   end
 
@@ -18,6 +19,10 @@ defmodule DbProxyBug.Mixfile do
     [extra_applications: [:logger],
      mod: {DbProxyBug.Application, []}]
   end
+
+  # Specifies which paths to compile per environment.
+  defp elixirc_paths(:test), do: ["lib", "test/support"]
+  defp elixirc_paths(_),     do: ["lib"]
 
   # Dependencies can be Hex packages:
   #
@@ -33,7 +38,9 @@ defmodule DbProxyBug.Mixfile do
       # A database wrapper and language integrated query for Elixir
       {:ecto, "~> 2.1.2", override: true},
       # An Ecto-compatible wrapper around the mysql-otp library
-      {:mariaex, "~> 0.8.0", override: true}
+      {:mariaex, "~> 0.8.0", override: true},
+      # Automatically run your Elixir project's tests each time you save a file
+      {:mix_test_watch, "~> 0.2", only: :dev, runtime: false}
     ]
   end
 end

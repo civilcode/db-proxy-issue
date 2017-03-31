@@ -27,14 +27,7 @@ use Mix.Config
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-#     import_config "#{Mix.env}.exs"
 
 config :db_proxy_bug, ecto_repos: [DbProxyBug.Repo]
 
-config :db_proxy_bug, DbProxyBug.Repo,
-  adapter: Ecto.Adapters.MySQL,
-  hostname: "localhost",
-  database: "db_proxy_bug",
-  username: "root",
-  password: "",
-  pool_size: 20
+import_config "#{Mix.env}.exs"

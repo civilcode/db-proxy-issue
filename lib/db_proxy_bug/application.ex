@@ -13,6 +13,7 @@ defmodule DbProxyBug.Application do
       # Starts a worker by calling: DbProxyBug.Worker.start_link(arg1, arg2, arg3)
       # worker(DbProxyBug.Worker, [arg1, arg2, arg3]),
       supervisor(DbProxyBug.Repo, []),
+      worker(DbProxyBug.Worker, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
