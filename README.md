@@ -1,19 +1,25 @@
 # DbProxyIssue
 
-**TODO: Add description**
+Application with one GenServer doing calls to the database in synchronous mode.
+
+See post on [ElixirForum](https://elixirforum.com/t/issue-with-dbconnection-ownership-proxy-checkout-and-genserver-process/4334).
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `db_proxy_issue` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [{:db_proxy_issue, "~> 0.1.0"}]
-end
+```
+mix deps.get
+mix test
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/db_proxy_issue](https://hexdocs.pm/db_proxy_issue).
+## How to reproduce the issue
 
+Just keep running the test.  Eventually, you should be getting a `GenServer` error like this one:
+
+```
+12:25:35.584 [error] GenServer DbProxyIssue.Worker terminating
+** (stop) exited in: GenServer.call(#PID<0.197.0>, {:checkout, #Reference<0.0.2.1622>, true, 15000}, 5000)
+    ** (EXIT) shutdown: "owner #PID<0.196.0> exited with: shutdown"
+    (db_connection) lib/db_connection/ownership/proxy.ex:32: DBConnection.Ownership.Proxy.checkout/2
+```
+
+If you set the `pool_size` to `1` in `config/test.exs`, the error is not reproduceable.
