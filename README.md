@@ -6,14 +6,17 @@ See post on [ElixirForum](https://elixirforum.com/t/issue-with-dbconnection-owne
 
 ## Installation
 
-```
-mix deps.get
-mix test
-```
+    mix deps.get
+    MIX_ENV=test ecto.create # you may wish to update config/test.ex with your database config
 
 ## How to reproduce the issue
 
-Just keep running the test.  Eventually, you should be getting a `GenServer` error like this one:
+Run:
+
+    while true; do mix test; done
+
+
+Eventually, a `GenServer` error will occur. Example:
 
 ```
 12:25:35.584 [error] GenServer DbProxyIssue.Worker terminating
