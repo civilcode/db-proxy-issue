@@ -22,4 +22,7 @@ Just keep running the test.  Eventually, you should be getting a `GenServer` err
     (db_connection) lib/db_connection/ownership/proxy.ex:32: DBConnection.Ownership.Proxy.checkout/2
 ```
 
-If you set the `pool_size` to `1` in `config/test.exs`, the error is not reproduceable.
+Work-arounds:
+
+- Set the `pool_size` to `1` in `config/test.exs`
+- Sleep 100ms before running the test (`:timer.sleep(100)` in `test/support/test_case.ex`)
