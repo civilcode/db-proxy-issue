@@ -3,11 +3,11 @@ defmodule DbProxyIssueTest do
   doctest DbProxyIssue
 
   test "worker fetches weather" do
-    assert DbProxyIssue.Worker.fetch_weather() == "REPLY"
+    assert DbProxyIssue.Worker.weather_count() == 0
   end
 
   test "worker fetches weather again" do
-    assert DbProxyIssue.Worker.fetch_weather() == "REPLY"
+    assert DbProxyIssue.Worker.weather_count() == 0
   end
 
   test "record weather" do
