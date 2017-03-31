@@ -8,6 +8,7 @@ defmodule DbProxyIssue.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      elixirc_paths: elixirc_paths(Mix.env),
+     aliases: aliases(),
      deps: deps()]
   end
 
@@ -39,6 +40,12 @@ defmodule DbProxyIssue.Mixfile do
       {:mariaex, "~> 0.8.0", override: true},
       {:postgrex, ">= 0.0.0"},
       {:mix_test_watch, "~> 0.2", only: :dev, runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      "test": ["ecto.migrate", "test"]
     ]
   end
 end
