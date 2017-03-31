@@ -35,11 +35,9 @@ defmodule DbProxyIssue.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      # A database wrapper and language integrated query for Elixir
       {:ecto, "~> 2.1.2", override: true},
-      # An Ecto-compatible wrapper around the mysql-otp library
       {:mariaex, "~> 0.8.0", override: true},
-      # Automatically run your Elixir project's tests each time you save a file
+      {:postgrex, ">= 0.0.0"},
       {:mix_test_watch, "~> 0.2", only: :dev, runtime: false}
     ]
   end

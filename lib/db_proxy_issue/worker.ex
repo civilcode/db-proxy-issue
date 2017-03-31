@@ -11,10 +11,20 @@ defmodule DbProxyIssue.Worker do
     GenServer.call(__MODULE__, :fetch_weather)
   end
 
+  def record_weather(city, temp_lo, temp_hi) do
+    GenServer.call(__MODULE__, {:record_weather, city, temp_lo, temp_hi})
+  end
+
   # Callbacks
 
+  def handle_call({:record_weather, city, temp_lo, temp_hi}, _from, state) do
+    result = Weather.record_weather(city, temp_lo, temp_hi)
+
+    {:reply, result, state}
+  end
+
   def handle_call(:fetch_weather, _from, state) do
-    records = Weather.all
+    Weather.all
 
     {:reply, "REPLY", state}
   end

@@ -14,6 +14,9 @@ defmodule DbProxyIssue.TestCase do
   end
 
   setup _tags do
+    # Uncomment to give `db_connection` a change to properly clean-up the previous checkout.
+    # :timer.sleep(100)
+
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(DbProxyIssue.Repo)
 
     # Alway share the connection we just checked out with all other processes
