@@ -1,3 +1,3 @@
 ExUnit.start()
 
-Ecto.Adapters.SQL.Sandbox.mode(DbProxyBug.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(DbProxyIssue.Repo, :manual)

@@ -1,4 +1,4 @@
-defmodule DbProxyBug.Repo.Migrations.CreateWeather do
+defmodule DbProxyIssue.Repo.Migrations.CreateWeather do
   use Ecto.Migration
 
   def change do

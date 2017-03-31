@@ -1,7 +1,7 @@
-defmodule DbProxyBug.Worker do
+defmodule DbProxyIssue.Worker do
   use GenServer
 
-  alias DbProxyBug.Weather
+  alias DbProxyIssue.Weather
 
   def start_link(opts \\ [name: __MODULE__]) do
     GenServer.start_link(__MODULE__, nil, opts)

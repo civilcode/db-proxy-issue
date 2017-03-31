@@ -1,6 +1,6 @@
-defmodule DbProxyBug do
+defmodule DbProxyIssue do
   @moduledoc """
-  Documentation for DbProxyBug.
+  Documentation for DbProxyIssue.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule DbProxyBug do
 
   ## Examples
 
-      iex> DbProxyBug.hello
+      iex> DbProxyIssue.hello
       :world
 
   """

@@ -1,8 +1,8 @@
-defmodule DbProxyBug.Weather do
+defmodule DbProxyIssue.Weather do
   use Ecto.Schema
   import Ecto.Query
-  alias DbProxyBug.Weather
-  alias DbProxyBug.Repo
+  alias DbProxyIssue.Weather
+  alias DbProxyIssue.Repo
 
 
   schema "weathers" do

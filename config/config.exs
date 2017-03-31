@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :db_proxy_bug, key: :value
+#     config :db_proxy_issue, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:db_proxy_bug, :key)
+#     Application.get_env(:db_proxy_issue, :key)
 #
 # Or configure a 3rd-party app:
 #
@@ -28,6 +28,6 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 
-config :db_proxy_bug, ecto_repos: [DbProxyBug.Repo]
+config :db_proxy_issue, ecto_repos: [DbProxyIssue.Repo]
 
 import_config "#{Mix.env}.exs"
